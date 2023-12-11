@@ -1,0 +1,39 @@
+.mainHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 3rem 15%;
+}
+
+.mainTitle {
+    display: flex;
+    align-items: center;
+}
+
+.mainTitle img {
+    width: 5rem;
+    margin-right: 1.5rem;
+}
+
+.mainTitle h1 {
+    text-align: center;
+    text-transform: uppercase;
+    color: #30363b;
+    text-shadow: 0 0 4px rgba(35, 34, 34, 0.4);
+    font-size: 2.5rem;
+    margin: 0;
+}
+
+.mainHeader button {
+    background: #edbf68;
+    border: none;
+    border-radius: 5px;
+    padding: 0.5rem 1.5rem;
+    color: #201e1a;
+    font-size: 1.25rem;
+    cursor: pointer;
+}
+
+.mainHeader button:hover {
+    background: #f5b744;
+}
