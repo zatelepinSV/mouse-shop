@@ -1,0 +1,30 @@
+.modal {
+    width: 30%;
+    background: #d4dbef;
+    border: none;
+    border-radius: 6px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    animation: fade-slide-in-from-top 0.3s ease-in-out;
+}
+
+.modal::backdrop {
+    background: rgba(0, 0, 0, 0.65);
+}
+
+.modal h2 {
+    font-size: 1.5rem;
+    color: #30363b;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+@keyframes fade-slide-in-from-top {
+    0% {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

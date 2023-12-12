@@ -7,7 +7,6 @@ const App = () => {
 
   const [shoppingCart, setShoppingCart] = useState({
     items: [],
-    ttt: ['sss'],
   });
 
   const addItemToCartHandler = (id) => {
@@ -22,11 +21,10 @@ const App = () => {
         quantity: 1,
       });
       return {
-        items: updatedItems
+        items: updatedItems,
       };
     });
   }
-
 
   return (
     <>
