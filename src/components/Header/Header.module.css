@@ -25,15 +25,17 @@
 }
 
 .mainHeader button {
-    background: #edbf68;
-    border: none;
+    background: #2F3132;
+    border: 2px solid transparent;
     border-radius: 5px;
     padding: 0.5rem 1.5rem;
-    color: #201e1a;
+    color: #fff;
     font-size: 1.25rem;
     cursor: pointer;
 }
 
 .mainHeader button:hover {
-    background: #f5b744;
+    background: #fff;
+    color: #2F3132;
+    border: solid 2px #2F3132;
 }

@@ -1,9 +1,10 @@
 .product {
+    max-width: 20rem;
     height: 100%;
-    background: #d4dbef;
-    border-radius: 6px;
     display: flex;
     flex-direction: column;
+    background: #d4dbef;
+    border-radius: 6px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
@@ -28,7 +29,7 @@
 
 .productPrice {
     font-size: 1rem;
-    color: rgba(169, 115, 20, 0.45);
+    color: #30363BFF;
     margin: 0;
 }
 
@@ -37,15 +38,17 @@
 }
 
 .productActions button {
-    background: #f4b115;
-    border: none;
+    background: #2F3132;
+    border: 2px solid transparent;
     border-radius: 5px;
     padding: 0.5rem 1rem;
-    color: #201e1a;
+    color: #fff;
     font-size: 1rem;
     cursor: pointer;
 }
 
 .productActions button:hover {
-    background: #f5b744;
+    background: #fff;
+    color: #2F3132;
+    border: 2px solid #2F3132;
 }

@@ -7,6 +7,7 @@ export const Product = (
     title,
     price,
     description,
+    onAddToCart,
   }
 ) => {
 
@@ -20,7 +21,7 @@ export const Product = (
           <p>{description}</p>
         </div>
         <p className={classes.productActions}>
-          <button>Add to Cart</button>
+          <button onClick={() => onAddToCart(id)}>Add to Cart</button>
         </p>
       </div>
     </article>

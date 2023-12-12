@@ -1,5 +1,7 @@
 import classes from "./Header.module.css";
-export const Header = () => {
+export const Header = ({ cart }) => {
+
+  const quantity = cart.items.length;
 
   return (
     <header className={classes.mainHeader}>
@@ -8,7 +10,7 @@ export const Header = () => {
         <h1>Logitech Mouse</h1>
       </div>
       <p>
-        <button>Cart</button>
+        <button>Cart ({quantity})</button>
       </p>
     </header>
   );
