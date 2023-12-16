@@ -12,14 +12,27 @@ const App = () => {
   const addItemToCartHandler = (id) => {
     setShoppingCart(prevState => {
       const updatedItems = [...prevState.items];
-      const product = PRODUCTS_DATA.find(product => product.id === id);
-      updatedItems.push({
-        id: product.id,
-        title: product.title,
-        description: product.description,
-        price: product.price,
-        quantity: 1,
-      });
+
+      const existingCartItemIndex = updatedItems.findIndex(item => item.id === id);
+
+      const existingItem = updatedItems[existingCartItemIndex];
+
+      if (existingItem) {
+        const updatedItem = {
+          ...existingItem,
+          quantity: existingItem.quantity + 1,
+        }
+        updatedItems[existingCartItemIndex] = updatedItem;
+      } else {
+        const product = PRODUCTS_DATA.find(product => product.id === id);
+        updatedItems.push({
+          id: product.id,
+          title: product.title,
+          description: product.description,
+          price: product.price,
+          quantity: 1,
+        });
+      }
       return {
         items: updatedItems,
       };

@@ -5,6 +5,7 @@ import classes from "./Header.module.css";
 export const Header = ({cart}) => {
   const modal = useRef(null);
   const quantity = cart.items.length;
+
   let modalActions = <button>Close</button>;
 
   if (quantity > 0) {
@@ -17,7 +18,6 @@ export const Header = ({cart}) => {
   }
   const cartOpenHandler = () => {
     modal.current.open();
-    console.log(modal)
   }
 
   return (

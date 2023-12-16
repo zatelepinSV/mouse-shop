@@ -16,7 +16,7 @@ export const CartModal = forwardRef (({ items, actions, openCart }, ref ) => {
   return createPortal (
     <dialog className={classes.modal} ref={dialog}>
       <h2>Your Cart</h2>
-      <Cart items={items} />
+      <Cart cartItems={items} />
       <form method="dialog" >
         {actions}
       </form>
