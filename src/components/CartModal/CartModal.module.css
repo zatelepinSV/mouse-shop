@@ -18,6 +18,29 @@
     margin: 0;
 }
 
+.form {
+    text-align: right;
+}
+
+.form button {
+    background: #2F3132;
+    border: 2px solid transparent;
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+    margin: 0 0.2rem;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all .3s;
+}
+
+.form button:hover {
+    background: #fff;
+    color: #2F3132;
+    border: 2px solid #2F3132;
+    transition: all .3s;
+}
+
 @keyframes fade-slide-in-from-top {
     0% {
         opacity: 0;

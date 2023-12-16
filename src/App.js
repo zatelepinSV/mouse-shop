@@ -12,9 +12,7 @@ const App = () => {
   const addItemToCartHandler = (id) => {
     setShoppingCart(prevState => {
       const updatedItems = [...prevState.items];
-
       const existingCartItemIndex = updatedItems.findIndex(item => item.id === id);
-
       const existingItem = updatedItems[existingCartItemIndex];
 
       if (existingItem) {
@@ -39,9 +37,33 @@ const App = () => {
     });
   }
 
+  const updateCartItemQuantityHandler = (id, amount) => {
+    console.log(`id = ${id}, amount = ${amount}`);
+    setShoppingCart((prevState) => {
+      const updateItems = [...prevState.items];
+      const updateItemIndex = updateItems.findIndex(item => item.id === id);
+      const updateItem = {
+        ...updateItems[updateItemIndex],
+      }
+      updateItem.quantity += amount;
+      if (updateItem.quantity <= 0) {
+        updateItems.splice(updateItemIndex, 1);
+      } else {
+        updateItems[updateItemIndex] = updateItem;
+      }
+
+      return {
+        items: updateItems,
+      }
+    })
+  }
+
   return (
     <>
-      <Header cart={shoppingCart} />
+      <Header
+        cart={shoppingCart}
+        onUpdateCartItemQuantity={updateCartItemQuantityHandler}
+      />
       <Shop onAddProduct={addItemToCartHandler} />
     </>
   );

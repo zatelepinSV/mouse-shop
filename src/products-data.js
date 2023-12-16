@@ -27,7 +27,7 @@ export const PRODUCTS_DATA = [
   {
     id: 'p3',
     image: mxAnywhere3s,
-    title: 'MX Master 3S',
+    title: 'MX ANYWHERE 3S',
     price: 99.99,
     description:
       'Compact Wireless Performance Mouse',

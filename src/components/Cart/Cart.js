@@ -1,7 +1,13 @@
 import classes from "./Cart.module.css";
 
-export const Cart = ({ cartItems }) => {
+export const Cart = ({ cartItems, onUpdateQuantity }) => {
   const totalPrice = cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0);
+  // let price = 0;
+  // cartItems.forEach(item => {
+  //   const intPrice = item.price * item.quantity;
+  //   return price += intPrice;
+  // });
+  // console.log(Number(price.toFixed(2)))
   const formattedTotalPrice = `$${totalPrice.toFixed(2)}`;
 
   return (
@@ -17,12 +23,12 @@ export const Cart = ({ cartItems }) => {
                 <span>{item.title}</span>
                 <span> ({formattedPrice})</span>
               </div>
-              <div className="cartItemActions">
-                <button>
+              <div className={classes.cartItemActions}>
+                <button onClick={() => onUpdateQuantity(item.id, -1)}>
                   -
                 </button>
                 <span>{item.quantity}</span>
-                <button>
+                <button onClick={() => onUpdateQuantity(item.id, 1)}>
                   +
                 </button>
               </div>
@@ -31,7 +37,7 @@ export const Cart = ({ cartItems }) => {
           }
         </ul>
       )}
-      <p>Total: {formattedTotalPrice}</p>
+      <p className={classes.cartTotalPrice}>Total: {formattedTotalPrice}</p>
     </div>
   );
 };

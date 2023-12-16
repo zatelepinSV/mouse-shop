@@ -2,7 +2,7 @@ import { CartModal } from "../CartModal";
 import { useRef } from "react";
 import classes from "./Header.module.css";
 
-export const Header = ({cart}) => {
+export const Header = ({ cart, onUpdateCartItemQuantity }) => {
   const modal = useRef(null);
   const quantity = cart.items.length;
 
@@ -22,14 +22,20 @@ export const Header = ({cart}) => {
 
   return (
     <>
-      <CartModal ref={modal} items={cart.items} actions={modalActions} openCart={cartOpenHandler}/>
+      <CartModal
+        ref={modal}
+        items={cart.items}
+        actions={modalActions}
+        openCart={cartOpenHandler}
+        updateQuantity={onUpdateCartItemQuantity}
+      />
       <header className={classes.mainHeader}>
         <div className={classes.mainTitle}>
           <img src="logo.png" alt="Logitech logo"/>
           <h1>Logitech Mouse</h1>
         </div>
         <p>
-          <button onClick={cartOpenHandler}>Cart ({quantity})</button>
+          <button onClick={cartOpenHandler}>Cart {quantity > 0 ? quantity : ''}</button>
         </p>
       </header>
     </>

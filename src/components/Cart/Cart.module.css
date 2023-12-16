@@ -31,10 +31,13 @@
     color: #201e1a;
     cursor: pointer;
     font-size: 1.1rem;
+    transition: all .3s;
 }
 
 .cartItemActions button:hover {
-    background: #f5b744;
+    background: #201e1a;
+    color: #fff;
+    transition: all .3s;
 }
 
 .cartItemActions button:first-of-type {
@@ -43,4 +46,5 @@
 
 .cartTotalPrice {
     text-align: right;
+    font-weight: bold;
 }
