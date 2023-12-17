@@ -1,11 +1,14 @@
 import { CartModal } from "../CartModal";
-import { useRef } from "react";
+import { CartContext } from "../../store/shopping-cart-context";
+import { useRef, useContext } from "react";
 import classes from "./Header.module.css";
 
-export const Header = ({ cart, onUpdateCartItemQuantity }) => {
-  const modal = useRef(null);
-  const quantity = cart.items.length;
 
+export const Header = ({ cart }) => {
+  const modal = useRef(null);
+  const { items } = useContext(CartContext);
+
+  const quantity = items.reduce((acc, item) =>  acc + item.quantity, 0);
   let modalActions = <button>Close</button>;
 
   if (quantity > 0) {
@@ -24,10 +27,7 @@ export const Header = ({ cart, onUpdateCartItemQuantity }) => {
     <>
       <CartModal
         ref={modal}
-        items={cart.items}
         actions={modalActions}
-        openCart={cartOpenHandler}
-        updateQuantity={onUpdateCartItemQuantity}
       />
       <header className={classes.mainHeader}>
         <div className={classes.mainTitle}>

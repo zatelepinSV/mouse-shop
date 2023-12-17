@@ -1,7 +1,7 @@
 import { PRODUCTS_DATA } from "../../products-data";
 import { Product } from "../Product";
 import classes from "./Shop.module.css";
-export const Shop = ({ onAddProduct }) => {
+export const Shop = () => {
 
   return (
     <section className={classes.shop}>
@@ -9,7 +9,7 @@ export const Shop = ({ onAddProduct }) => {
       <ul className={classes.products}>
         {PRODUCTS_DATA.map((product) => (
           <li key={product.id}>
-            <Product {...product} onAddToCart={onAddProduct}/>
+            <Product {...product}/>
           </li>
         ))}
       </ul>

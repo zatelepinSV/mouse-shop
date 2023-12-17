@@ -1,7 +1,10 @@
+import { useContext } from "react";
+import { CartContext } from "../../store/shopping-cart-context";
 import classes from "./Cart.module.css";
 
-export const Cart = ({ cartItems, onUpdateQuantity }) => {
-  const totalPrice = cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0);
+export const Cart = () => {
+  const { items, updateItemQuantity } = useContext(CartContext);
+  const totalPrice = items.reduce((acc, item) => acc + item.price * item.quantity, 0);
   // let price = 0;
   // cartItems.forEach(item => {
   //   const intPrice = item.price * item.quantity;
@@ -12,10 +15,10 @@ export const Cart = ({ cartItems, onUpdateQuantity }) => {
 
   return (
     <div >
-      {cartItems.length === 0 && <p>No cartItems in cart!</p>}
-      {cartItems.length > 0 && (
+      {items.length === 0 && <p>No cartItems in cart!</p>}
+      {items.length > 0 && (
         <ul className={classes.cartItems}>
-          {cartItems.map(item => {
+          {items.map(item => {
             const formattedPrice = `$${item.price.toFixed(2)}`;
 
             return (<li key={item.id}>
@@ -24,11 +27,11 @@ export const Cart = ({ cartItems, onUpdateQuantity }) => {
                 <span> ({formattedPrice})</span>
               </div>
               <div className={classes.cartItemActions}>
-                <button onClick={() => onUpdateQuantity(item.id, -1)}>
+                <button onClick={() => updateItemQuantity(item.id, -1)}>
                   -
                 </button>
                 <span>{item.quantity}</span>
-                <button onClick={() => onUpdateQuantity(item.id, 1)}>
+                <button onClick={() => updateItemQuantity(item.id, 1)}>
                   +
                 </button>
               </div>

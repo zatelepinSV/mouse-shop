@@ -2,6 +2,7 @@ import { Header } from "./components/Header";
 import { Shop } from "./components/Shop";
 import { useState } from "react";
 import { PRODUCTS_DATA } from "./products-data";
+import { CartContext } from "./store/shopping-cart-context";
 
 const App = () => {
 
@@ -38,7 +39,6 @@ const App = () => {
   }
 
   const updateCartItemQuantityHandler = (id, amount) => {
-    console.log(`id = ${id}, amount = ${amount}`);
     setShoppingCart((prevState) => {
       const updateItems = [...prevState.items];
       const updateItemIndex = updateItems.findIndex(item => item.id === id);
@@ -51,21 +51,23 @@ const App = () => {
       } else {
         updateItems[updateItemIndex] = updateItem;
       }
-
       return {
         items: updateItems,
-      }
-    })
+      };
+    });
+  }
+
+  const ctxValue = {
+    items: shoppingCart.items,
+    addItemToCart: addItemToCartHandler,
+    updateItemQuantity: updateCartItemQuantityHandler,
   }
 
   return (
-    <>
-      <Header
-        cart={shoppingCart}
-        onUpdateCartItemQuantity={updateCartItemQuantityHandler}
-      />
-      <Shop onAddProduct={addItemToCartHandler} />
-    </>
+    <CartContext.Provider value={ctxValue}>
+      <Header />
+      <Shop />
+    </CartContext.Provider>
   );
 };
 
