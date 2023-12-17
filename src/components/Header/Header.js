@@ -1,8 +1,7 @@
+import { useRef, useContext } from "react";
 import { CartModal } from "../CartModal";
 import { CartContext } from "../../store/shopping-cart-context";
-import { useRef, useContext } from "react";
 import classes from "./Header.module.css";
-
 
 export const Header = ({ cart }) => {
   const modal = useRef(null);
@@ -35,7 +34,7 @@ export const Header = ({ cart }) => {
           <h1>Logitech Mouse</h1>
         </div>
         <p>
-          <button onClick={cartOpenHandler}>Cart {quantity > 0 ? quantity : ''}</button>
+          <button onClick={cartOpenHandler}>Cart <sup className={classes.quantity}>{quantity > 0 ? quantity : ''}</sup></button>
         </p>
       </header>
     </>

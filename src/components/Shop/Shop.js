@@ -1,9 +1,7 @@
 import { PRODUCTS_DATA } from "../../products-data";
 import { Product } from "../Product";
 import classes from "./Shop.module.css";
-export const Shop = () => {
-
-  return (
+export const Shop = () => (
     <section className={classes.shop}>
       <h2>Super mice For Everyone</h2>
       <ul className={classes.products}>
@@ -14,5 +12,4 @@ export const Shop = () => {
         ))}
       </ul>
     </section>
-  );
-};
+);
